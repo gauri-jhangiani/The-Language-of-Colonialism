@@ -1,12 +1,5 @@
 # catch-all working file for your project.
-# reorganize objects (classes). object is a thing that has characteristics or attributes.
-# adjectives and verbs
 
-# Gauri TODO's
-# TODO: Audiences for particular dates - for Brandon to work on adding the extra graphs
-# TODO: Talk about goals for the end of the semester
-# TODO: Some metadata categories have multiple values; lord curzon early speech 1
-# TODO: give multiple words as a list to track over time - Brandon
 
 import math
 import pandas as pd
@@ -19,7 +12,6 @@ import os
 import string
 import matplotlib.pyplot as plt
 
-# TODO Brandon: merge by month? the graph is actually pretty legible
 
 class Corpus(object):
     def __init__(self):
@@ -297,7 +289,7 @@ class Corpus(object):
     
     
 
-    # TODO: find the name of the speech that has the most frequencies
+    
 
     def all_files(self):
             """given a directory, return the filenames in it"""
@@ -338,7 +330,6 @@ def write_to_file(stuff_to_print, the_file_to_print_to):
 
 
 class Text(object):
-    # now create the blueprint for our text object
     def __init__(self, filename, query, category):
         # adjectives here
         self.filename = filename
@@ -359,8 +350,6 @@ class Text(object):
         self.sentence_lengths = [len(sentence) for sentence in self.sentences_in_tokens]
         self.average_sentence_length = statistics.mean(self.sentence_lengths)
         # self.whatever_you_want = the_code_that_generates_that_result
-        # working as of 8.12
-        # word frequencies
         self.word_frequencies = nltk.FreqDist(self.stop_and_punctuation_removed)
         self.nltk_version_text = nltk.Text(self.stopwords_removed)
         self.bigrams = list(nltk.bigrams(self.stop_and_punctuation_removed))
@@ -375,15 +364,13 @@ class Text(object):
         self.location=self.raw_text_lines[5].replace('\n','').split(': ')[1]
         self.token_length= len(self.clean_tokens)
         self.character_length=len(self.raw_text)
-        # TODO keyword in context
-        # TODO: find the code for nltk collocations and see how it is working
-        # collocations across the corpus
+       
     
     def find_keyword(self, keyword):
         return [w.replace('\n','') for w in self.sentences_in_characters if keyword in nltk.word_tokenize(w)]
     
 
-    # add more functions to make verbs
+   
     
     # def function_template(self):
     #     the_value = code to generate the value
